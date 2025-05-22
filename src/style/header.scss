@@ -1,0 +1,14 @@
+.header {
+  width: 100%;
+  display: flex;
+  min-height: 70px;
+  background-color: var(--bgWhite);
+  box-shadow: 0 4px 20px 0 var(--shadowBlack);
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+  }
+}

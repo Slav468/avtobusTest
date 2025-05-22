@@ -1,0 +1,96 @@
+@use "sass:math";
+@use "./style/fonts.scss";
+@use "./style/normalize.css";
+@use "./style/header.scss";
+@use "./style/variables.scss";
+
+// fonts
+$font-family: "Circe", sans-serif;
+$second-family: "Arial", sans-serif;
+$third-family: "Igra Sans", sans-serif;
+$fourth-family: "Roboto", sans-serif;
+$fontSize: 16;
+$mainColor: #000000;
+
+// layout
+$minWidth: 320;
+$maxWidth: 1920;
+$maxWidthContainer: 1160;
+$containerPadding: 30;
+$containerWidth: $maxWidthContainer + $containerPadding;
+$pc: $containerWidth;
+
+// points
+$tablet: 991.98;
+$mobile: 767.98;
+$mobileSmall: 479.98;
+
+// type
+$responsiveType: 1;
+
+body {
+  min-width: #{$minWidth}px;
+  color: $mainColor;
+  font-family: $font-family;
+  font-size: #{$fontSize}px;
+
+  background: #f6f7f9;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+
+  > main {
+    flex: 1 1 auto;
+  }
+
+  > * {
+    min-width: 0;
+  }
+}
+
+@if ($responsiveType==1) {
+  [class*="__container"] {
+    @if ($maxWidthContainer>0) {
+      max-width: #{$containerWidth}px;
+      margin: 0 auto;
+    }
+    @if ($containerPadding>0) {
+      @if ($maxWidthContainer>0) {
+        padding-left: #{math.div($containerPadding, 2)}px;
+        padding-right: #{math.div($containerPadding, 2)}px;
+      } @else {
+        @include adaptiveValue("padding-left", math.div($containerPadding, 2), 15);
+        @include adaptiveValue("padding-right", math.div($containerPadding, 2), 15);
+      }
+    }
+  }
+} @else {
+  [class*="__container"] {
+    margin: 0 auto;
+    @if ($maxWidthContainer>0) {
+      max-width: #{$maxWidthContainer}px;
+    } @else {
+      @if ($containerPadding>0) {
+        padding-left: #{math.div($containerPadding, 2)}px;
+        padding-right: #{math.div($containerPadding, 2)}px;
+      }
+    }
+    @media (max-width: toEm($pc)) {
+      max-width: 970px;
+    }
+    @media (max-width: toEm($tablet)) {
+      max-width: 750px;
+    }
+    @media (max-width: toEm($mobile)) {
+      max-width: none;
+      @if ($containerPadding>0 and $maxWidthContainer>0) {
+        padding-left: #{math.div($containerPadding, 2)}px;
+        padding-right: #{math.div($containerPadding, 2)}px;
+      }
+    }
+  }
+}

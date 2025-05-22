@@ -1,0 +1,32 @@
+:root {
+  --primary: #005bfe;
+  --primaryHover: #0047c6;
+
+  --secondary: #f81155;
+  --secondaryHover: #d1003e;
+
+  /* text */
+  --textInverse: rgba(255, 255, 255, 1);
+  --textLight: rgba(0, 0, 0, 0.3);
+  --textMediumLight: rgba(0, 0, 0, 0.5);
+  --textDark: rgba(0, 0, 0, 0.8);
+
+  /* border */
+  --borderLight: rgba(0, 0, 0, 0.1);
+
+  /* svg */
+  --svgBlackLight: rgba(0, 0, 0, 0.3);
+  --svgWhiteSimple: rgba(255, 255, 255, 1);
+
+  /*  bg */
+  --bgWhite: rgba(255, 255, 255, 1);
+  --bgDarkLight: rgba(0, 0, 0, 0.3);
+  --bgDarkExtraLight: rgba(0, 0, 0, 0.05);
+
+  /* Other */
+  --false: #ea3d2f;
+
+  /*  shadow */
+  --shadowColored: rgba(0, 91, 254, 0.4);
+  --shadowBlack: rgba(0, 0, 0, 0.05);
+}
