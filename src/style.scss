@@ -3,7 +3,7 @@
 @use "./style/fonts.scss";
 @use "./style/variables.scss";
 @use "./style/settings.scss" as *;
-@forward "./style/animations.scss";
+@use "./style/animations.scss";
 @use "./style/common.scss";
 @use "./style/components/header.scss";
 @use "./style/components/logo.scss";

@@ -12,12 +12,15 @@
   flex-direction: column;
 
   @media (max-width: 768px) {
-    right: 0;
+    right: -400px;
     left: auto;
   }
 
   &.menu-group_open {
     transform: translateX(400px);
+    @media (max-width: 768px) {
+      transform: translateX(-400px);
+    }
   }
 
   // .menu-group__header

@@ -29,7 +29,7 @@ class ContactBook {
   private dropdownManager: DropdownManager;
   public popupManager: PopupManager;
   private toasterManager: ToasterManager;
-  private validator: Validator;
+  // private validator: Validator;
 
   constructor() {
     // Загрузка данных из localStorage
@@ -42,7 +42,7 @@ class ContactBook {
     this.dropdownManager = new DropdownManager();
     this.popupManager = new PopupManager(this.menuManager, this.groupsManager);
     this.toasterManager = new ToasterManager();
-    this.validator = new Validator();
+    // this.validator = new Validator();
 
     // Инициализация обработчиков событий
     this.initEventListeners();
@@ -724,6 +724,8 @@ class GroupsManager {
     const allErrors: string[] = [];
     const groupNames: string[] = [];
 
+    console.log(groups);
+
     // Валидируем все группы
     items.forEach((item, index) => {
       const input = item.querySelector('input') as HTMLInputElement;
@@ -1263,6 +1265,8 @@ class ToasterManager {
 // Инициализация приложения
 document.addEventListener('DOMContentLoaded', () => {
   const app = new ContactBook();
+
+  console.log(app);
 
   // Обновляем HTML для добавления уникальных ID к инпутам
   const contactNameInput = document.querySelector(
