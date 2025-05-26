@@ -1,0 +1,35 @@
+.toster {
+  position: fixed;
+  right: 1.5vw;
+  bottom: 1.5vw;
+  z-index: 6;
+
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px;
+
+  box-shadow: 0 2px 8px 0 var(--shadowBlack);
+  background-color: var(--bgWhite);
+
+  border-radius: var(--radius);
+
+  cursor: default;
+
+  // .toster__img
+  &__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accept);
+  }
+
+  // .toster__text
+  &__text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+}

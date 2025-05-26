@@ -1,0 +1,112 @@
+.group {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--bgWhite);
+  box-shadow: 0 4px 20px 0 var(--shadowBlack);
+  border-radius: var(--radius);
+  overflow: hidden;
+  padding: 12px 12px;
+  transition: all 0.3s ease;
+
+  &.group_open {
+    & .group__list {
+      height: 100%;
+      opacity: 1;
+    }
+  }
+  // .group__header
+  &__header {
+    padding: 24px 12px;
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    &__name {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    // .group-header__trigger
+    &__trigger {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      flex: 0 0 24px;
+      color: var(--textLight);
+      & svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  // .group__list
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding: 0 12px;
+    height: 0;
+    opacity: 0;
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    padding: 16px 0;
+    border-top: 1px solid var(--borderLight);
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    // .group-item__name
+    &__name {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    // .group-item__control
+    &__control {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      @media (max-width: 768px) {
+        width: 100%;
+        gap: 10px;
+        justify-content: space-between;
+      }
+    }
+
+    // .group-item__phone
+    &__phone {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    &__link {
+      @media (any-hover: hover) {
+        &:hover {
+          color: var(--primary);
+        }
+      }
+    }
+
+    // .group-item__buttons
+    &__buttons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+}

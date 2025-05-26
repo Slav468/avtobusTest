@@ -8,26 +8,285 @@
   <title>Vite + TS + SCSS</title>
 </head>
 
-<body>
+<body class=''>
   <div class='wrapper'>
 
     <header class='header'>
       <div class="header__container">
         <div class="header__logo">
           <div class="logo">
-            <div class="logo__img"></div>
-            <div class="logo__slogan"></div>
+            <div class="logo__img">
+              <svg width="18" height="22" viewBox="0 0 18 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M1.61967 0.0527838C1.2459 0.133671 0.940376 0.306712 0.634031 0.610909C0.321235 0.921514 0.153771 1.21819 0.0701915 1.60981C-0.0243015 2.05269 -0.022959 19.3872 0.0716206 19.8305C0.23891 20.6147 0.806821 21.3433 1.52522 21.6954C2.202 22.0271 1.62751 22.0069 10.0492 21.9945C17.5814 21.9834 17.5823 21.9834 17.7018 21.8947C17.7676 21.8459 17.8616 21.7526 17.9107 21.6873L18 21.5685V12.3724V3.17625L17.9107 3.05748C17.8616 2.99216 17.7677 2.89884 17.7019 2.85008C17.5893 2.76648 17.5157 2.76067 16.4183 2.74868L15.254 2.73599L15.2413 1.57992C15.2292 0.490159 15.2233 0.417098 15.1391 0.30525C15.09 0.239972 14.9961 0.146701 14.9303 0.0979361C14.8108 0.0093946 14.8018 0.00926559 8.3505 0.00174021C3.03793 -0.00449511 1.84222 0.00457835 1.61967 0.0527838ZM13.8643 2.05187V2.7399H7.90839C1.39855 2.7399 1.78207 2.75521 1.55436 2.48649C1.26807 2.14858 1.39574 1.59983 1.80151 1.42434C1.90917 1.37777 3.03711 1.36689 7.89895 1.36551L13.8643 1.36383V2.05187ZM9.59593 5.55672C10.6273 5.77367 11.502 6.64231 11.7205 7.66641C12.1348 9.60826 10.3878 11.343 8.43222 10.9316C7.64267 10.7656 6.90881 10.2016 6.55435 9.4885C6.14096 8.65683 6.14096 7.83153 6.55435 6.99987C7.09979 5.90259 8.3715 5.29918 9.59593 5.55672ZM11.2417 12.4729C12.5361 12.8487 13.4114 13.7251 13.7664 15.0007C13.8299 15.2292 13.8427 15.4561 13.8427 16.3576C13.8427 17.3839 13.838 17.4464 13.7534 17.559C13.7042 17.6244 13.6103 17.7177 13.5445 17.7665C13.4255 17.8547 13.4014 17.8552 9.01407 17.8552C4.62673 17.8552 4.60261 17.8547 4.48365 17.7665C4.19246 17.5506 4.18687 17.5284 4.17133 16.5298C4.15595 15.5425 4.19359 15.1766 4.36066 14.6888C4.68173 13.7514 5.53329 12.8911 6.44145 12.5865C7.04479 12.3842 7.15383 12.3761 9.12234 12.3875C10.7413 12.3968 11.0181 12.408 11.2417 12.4729Z" />
+              </svg>
+            </div>
+            <div class="logo__slogan">
+              Книга контактов
+            </div>
           </div>
         </div>
 
         <div class="header__buttons">
-          <button class="button button_secondary">Зарегистрироваться</button>
-          <button class="button button_primary">Войти</button>
+          <button type='button' data-menu='contacts' class="button button_secondary">
+            <span>Добавить контакт</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.25 6.75H6.75V11.25H5.25V6.75H0.75V5.25H5.25V0.75H6.75V5.25H11.25V6.75Z" />
+            </svg>
+          </button>
+          <button type='button' data-menu="groups" class="button button_primary">Группы</button>
         </div>
       </div>
     </header>
 
+    <main class='main'>
+      <div class="main__container">
+
+        <div class="main__content">
+          <div class="main__button">
+            <button type='button' class="button button_secondary">
+              <span>Добавить контакт</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.25 6.75H6.75V11.25H5.25V6.75H0.75V5.25H5.25V0.75H6.75V5.25H11.25V6.75Z" />
+              </svg>
+            </button>
+          </div>
+          <div class="group" id=''>
+            <div class="group__header group-header">
+              <div class="group-header__name">Название группы</div>
+              <div class="group-header__trigger">
+                <svg width="13" height="8" viewBox="0 0 13 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.8849 0.294983L6.29492 4.87498L1.70492 0.294983L0.294922 1.70498L6.29492 7.70498L12.2949 1.70498L10.8849 0.294983Z" />
+                </svg>
+              </div>
+            </div>
+            <div class="group__list">
+              <div class="group__item group-item">
+                <div class="group-item__name">Фамилия Имя Отчество</div>
+                <div class="group-item__control">
+                  <div class="group-item__phone">
+                    <a href="tel:+7ХХХХХХХХХХ" class='group-item__link'>+7 (ХХХ) ХХХ - ХХ - ХХ</a>
+                  </div>
+                  <div class="group-item__buttons">
+                    <button type='button' class="button button_rename">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0 14.25V18H3.75L14.81 6.94L11.06 3.19L0 14.25ZM17.71 4.04C18.1 3.65 18.1 3.02 17.71 2.63L15.37 0.289998C14.98 -0.100002 14.35 -0.100002 13.96 0.289998L12.13 2.12L15.88 5.87L17.71 4.04Z" />
+                      </svg>
+                    </button>
+                    <button type='button' class="button button_delete">
+                      <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M1.66664 17.3889C1.66664 18.55 2.61664 19.5 3.77775 19.5H12.2222C13.3833 19.5 14.3333 18.55 14.3333 17.3889V4.72222H1.66664V17.3889ZM4.26331 9.87333L5.75164 8.385L7.99997 10.6228L10.2378 8.385L11.7261 9.87333L9.48831 12.1111L11.7261 14.3489L10.2378 15.8372L7.99997 13.5994L5.7622 15.8372L4.27386 14.3489L6.51164 12.1111L4.26331 9.87333ZM11.6944 1.55556L10.6389 0.5H5.36108L4.30553 1.55556H0.611084V3.66667H15.3889V1.55556H11.6944Z" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="group">
+            <div class="group__header group-header">
+              <div class="group-header__name">Название группы</div>
+              <div class="group-header__trigger">
+                <svg width="13" height="8" viewBox="0 0 13 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.8849 0.294983L6.29492 4.87498L1.70492 0.294983L0.294922 1.70498L6.29492 7.70498L12.2949 1.70498L10.8849 0.294983Z" />
+                </svg>
+              </div>
+            </div>
+            <div class="group__list">
+              <div class="group__item group-item">
+                <div class="group-item__name">Фамилия Имя Отчество</div>
+                <div class="group-item__control">
+                  <div class="group-item__phone">
+                    <a href="tel:+7ХХХХХХХХХХ" class='group-item__link'>+7 (ХХХ) ХХХ - ХХ - ХХ</a>
+                  </div>
+                  <div class="group-item__buttons">
+                    <button type='button' class="button button_rename">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0 14.25V18H3.75L14.81 6.94L11.06 3.19L0 14.25ZM17.71 4.04C18.1 3.65 18.1 3.02 17.71 2.63L15.37 0.289998C14.98 -0.100002 14.35 -0.100002 13.96 0.289998L12.13 2.12L15.88 5.87L17.71 4.04Z" />
+                      </svg>
+                    </button>
+                    <button type='button' class="button button_delete">
+                      <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M1.66664 17.3889C1.66664 18.55 2.61664 19.5 3.77775 19.5H12.2222C13.3833 19.5 14.3333 18.55 14.3333 17.3889V4.72222H1.66664V17.3889ZM4.26331 9.87333L5.75164 8.385L7.99997 10.6228L10.2378 8.385L11.7261 9.87333L9.48831 12.1111L11.7261 14.3489L10.2378 15.8372L7.99997 13.5994L5.7622 15.8372L4.27386 14.3489L6.51164 12.1111L4.26331 9.87333ZM11.6944 1.55556L10.6389 0.5H5.36108L4.30553 1.55556H0.611084V3.66667H15.3889V1.55556H11.6944Z" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="group__item group-item">
+                <div class="group-item__name">Фамилия Имя Отчество</div>
+                <div class="group-item__control">
+                  <div class="group-item__phone">
+                    <a href="tel:+7ХХХХХХХХХХ" class='group-item__link'>+7 (ХХХ) ХХХ - ХХ - ХХ</a>
+                  </div>
+                  <div class="group-item__buttons">
+                    <button type='button' class="button button_rename">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0 14.25V18H3.75L14.81 6.94L11.06 3.19L0 14.25ZM17.71 4.04C18.1 3.65 18.1 3.02 17.71 2.63L15.37 0.289998C14.98 -0.100002 14.35 -0.100002 13.96 0.289998L12.13 2.12L15.88 5.87L17.71 4.04Z" />
+                      </svg>
+                    </button>
+                    <button type='button' class="button button_delete">
+                      <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M1.66664 17.3889C1.66664 18.55 2.61664 19.5 3.77775 19.5H12.2222C13.3833 19.5 14.3333 18.55 14.3333 17.3889V4.72222H1.66664V17.3889ZM4.26331 9.87333L5.75164 8.385L7.99997 10.6228L10.2378 8.385L11.7261 9.87333L9.48831 12.1111L11.7261 14.3489L10.2378 15.8372L7.99997 13.5994L5.7622 15.8372L4.27386 14.3489L6.51164 12.1111L4.26331 9.87333ZM11.6944 1.55556L10.6389 0.5H5.36108L4.30553 1.55556H0.611084V3.66667H15.3889V1.55556H11.6944Z" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="group__item group-item">
+                <div class="group-item__name">Фамилия Имя Отчество</div>
+                <div class="group-item__control">
+                  <div class="group-item__phone">
+                    <a href="tel:+7ХХХХХХХХХХ" class='group-item__link'>+7 (ХХХ) ХХХ - ХХ - ХХ</a>
+                  </div>
+                  <div class="group-item__buttons">
+                    <button type='button' class="button button_rename">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0 14.25V18H3.75L14.81 6.94L11.06 3.19L0 14.25ZM17.71 4.04C18.1 3.65 18.1 3.02 17.71 2.63L15.37 0.289998C14.98 -0.100002 14.35 -0.100002 13.96 0.289998L12.13 2.12L15.88 5.87L17.71 4.04Z" />
+                      </svg>
+                    </button>
+                    <button type='button' class="button button_delete">
+                      <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M1.66664 17.3889C1.66664 18.55 2.61664 19.5 3.77775 19.5H12.2222C13.3833 19.5 14.3333 18.55 14.3333 17.3889V4.72222H1.66664V17.3889ZM4.26331 9.87333L5.75164 8.385L7.99997 10.6228L10.2378 8.385L11.7261 9.87333L9.48831 12.1111L11.7261 14.3489L10.2378 15.8372L7.99997 13.5994L5.7622 15.8372L4.27386 14.3489L6.51164 12.1111L4.26331 9.87333ZM11.6944 1.55556L10.6389 0.5H5.36108L4.30553 1.55556H0.611084V3.66667H15.3889V1.55556H11.6944Z" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+          <h2>Список контактов пуст</h2>
+        </div>
+      </div>
+    </main>
+
+    <div class="toster">
+      <div class="toster__img">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M7 0C3.13438 0 0 3.13438 0 7C0 10.8656 3.13438 14 7 14C10.8656 14 14 10.8656 14 7C14 3.13438 10.8656 0 7 0ZM10.0234 4.71406L6.73281 9.27656C6.68682 9.34076 6.62619 9.39306 6.55595 9.42914C6.48571 9.46523 6.40787 9.48405 6.32891 9.48405C6.24994 9.48405 6.17211 9.46523 6.10186 9.42914C6.03162 9.39306 5.97099 9.34076 5.925 9.27656L3.97656 6.57656C3.91719 6.49375 3.97656 6.37813 4.07812 6.37813H4.81094C4.97031 6.37813 5.12187 6.45469 5.21562 6.58594L6.32812 8.12969L8.78438 4.72344C8.87813 4.59375 9.02812 4.51562 9.18906 4.51562H9.92188C10.0234 4.51562 10.0828 4.63125 10.0234 4.71406Z" />
+        </svg>
+      </div>
+      <div class="toster__text">
+        Успешно завершено
+      </div>
+    </div>
+
+    <div class="menu-group" data-menu='group'>
+      <div class="menu-group__header">
+        <div class="menu-group__title">Группы контактов</div>
+        <button type='button' class="button button_close">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" />
+          </svg>
+        </button>
+      </div>
+      <div class="menu-group__body">
+        <div class="menu-group__item">
+          <input autocomplete="off" type="text" name="nameField" placeholder="Введите название" value='Друзья' class="input">
+          <button type='button' class="button button_delete">
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M1.66664 17.3889C1.66664 18.55 2.61664 19.5 3.77775 19.5H12.2222C13.3833 19.5 14.3333 18.55 14.3333 17.3889V4.72222H1.66664V17.3889ZM4.26331 9.87333L5.75164 8.385L7.99997 10.6228L10.2378 8.385L11.7261 9.87333L9.48831 12.1111L11.7261 14.3489L10.2378 15.8372L7.99997 13.5994L5.7622 15.8372L4.27386 14.3489L6.51164 12.1111L4.26331 9.87333ZM11.6944 1.55556L10.6389 0.5H5.36108L4.30553 1.55556H0.611084V3.66667H15.3889V1.55556H11.6944Z" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="menu-group__item">
+          <input autocomplete="off" type="text" name="nameField" placeholder="Введите название" value='Друзья' class="input">
+          <button type='button' class="button button_delete">
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M1.66664 17.3889C1.66664 18.55 2.61664 19.5 3.77775 19.5H12.2222C13.3833 19.5 14.3333 18.55 14.3333 17.3889V4.72222H1.66664V17.3889ZM4.26331 9.87333L5.75164 8.385L7.99997 10.6228L10.2378 8.385L11.7261 9.87333L9.48831 12.1111L11.7261 14.3489L10.2378 15.8372L7.99997 13.5994L5.7622 15.8372L4.27386 14.3489L6.51164 12.1111L4.26331 9.87333ZM11.6944 1.55556L10.6389 0.5H5.36108L4.30553 1.55556H0.611084V3.66667H15.3889V1.55556H11.6944Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="menu-group__footer">
+        <button type='button' class="button button_transparent">Добавить</button>
+        <button type='button' class="button button_primary">Сохранить</button>
+      </div>
+    </div>
+
+    <div class="menu-group" data-menu='contacts'>
+      <div class="menu-group__header">
+        <div class="menu-group__title">Добавление контакта</div>
+        <button type='button' class="button button_close">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" />
+          </svg>
+        </button>
+      </div>
+      <div class="menu-group__body">
+        <div class="menu-group__item">
+          <input autocomplete="off" type="text" name="nameField" placeholder="Введите ФИО" value='' class="input" required>
+        </div>
+
+        <div class="menu-group__item">
+          <input autocomplete="off" type="text" name="nameField" placeholder="Введите номер" value='' class="input" required>
+        </div>
+
+        <div class="dropdown" id="dropdown">
+          <button class="dropdown__toggle" aria-haspopup="listbox" aria-expanded="false">
+            <span class="dropdown__selected" data-value=''>Выберите группу</span>
+            <svg width="13" height="8" viewBox="0 0 13 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.8849 0.294983L6.29492 4.87498L1.70492 0.294983L0.294922 1.70498L6.29492 7.70498L12.2949 1.70498L10.8849 0.294983Z" />
+            </svg>
+          </button>
+
+          <ul class="dropdown__menu" role="listbox" aria-labelledby="dropdown-label">
+            <li class="dropdown__item" role="option" data-value="option1">Опция 1</li>
+            <li class="dropdown__item" role="option" data-value="option2">Опция 2</li>
+            <li class="dropdown__item" role="option" data-value="option3">Опция 3</li>
+            <li class="dropdown__item" role="option" data-value="option4">Опция 4</li>
+            <li class="dropdown__item" role="option" data-value="option5">Опция 5</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="menu-group__footer">
+        <button type='button' class="button button_primary">Сохранить</button>
+      </div>
+    </div>
+
+    <div class="popup" id="reanswer">
+      <div class="popup__content">
+        <div class="popup-header">
+          <button type='button' class="button button_close">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="popup-body">
+          <div class="popup-body__description">
+            <div class="popup__title">Удалить группу?</div>
+            <div class="popup__text">Удаление группы повлечет за собой удаление контактов связанных с этой группой</div>
+          </div>
+          <div class="popup-buttons">
+            <button type='button' class="button button_primary">Да, удалить</button>
+            <button type='button' class="button button_transparent">Отмена</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
+
   <script type="module" src="/src/main.ts"></script>
 </body>
 

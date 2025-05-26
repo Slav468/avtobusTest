@@ -1,19 +1,78 @@
-.buttons {
-}
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
   font-weight: 700;
   font-size: 14px;
   line-height: 1.3;
   text-align: center;
-  color:;
+  padding: 10px 14px;
 
-  // .button_secondary
+  color: var(--textLight);
+  background-color: var(--bgWhite);
 
-  &_secondary {
+  border: 1px solid var(--borderLight);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  & svg {
+    transition: transform 0.3s ease;
   }
 
   // .button_primary
-
   &_primary {
+    background-color: var(--primary);
+    color: var(--textInverse);
+  }
+  // .button_secondary
+  &_secondary {
+    background-color: var(--secondary);
+    color: var(--textInverse);
+  }
+
+  &_rename,
+  &_delete {
+    padding: 8px 10px;
+  }
+
+  &_transparent {
+    background-color: transparent;
+    // border: none;
+    color: var(--primary);
+  }
+
+  &_close {
+    padding: 8px;
+    border: none;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      &.button_primary {
+        background-color: var(--primaryHover);
+      }
+      &.button_secondary {
+        background-color: var(--secondaryHover);
+      }
+      &.button_rename {
+        background-color: var(--primary);
+        color: var(--textInverse);
+      }
+      &.button_delete {
+        background-color: var(--false);
+        color: #fff;
+      }
+      &.button_transparent {
+        background-color: var(--primary);
+        color: var(--textInverse);
+      }
+      &.button_close {
+        background-color: var(--false);
+        color: var(--textInverse);
+      }
+    }
   }
 }

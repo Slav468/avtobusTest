@@ -1,47 +1,50 @@
 @use "sass:math";
-@use "./style/fonts.scss";
 @use "./style/normalize.css";
-@use "./style/header.scss";
+@use "./style/fonts.scss";
 @use "./style/variables.scss";
-
-// fonts
-$font-family: "Circe", sans-serif;
-$second-family: "Arial", sans-serif;
-$third-family: "Igra Sans", sans-serif;
-$fourth-family: "Roboto", sans-serif;
-$fontSize: 16;
-$mainColor: #000000;
-
-// layout
-$minWidth: 320;
-$maxWidth: 1920;
-$maxWidthContainer: 1160;
-$containerPadding: 30;
-$containerWidth: $maxWidthContainer + $containerPadding;
-$pc: $containerWidth;
-
-// points
-$tablet: 991.98;
-$mobile: 767.98;
-$mobileSmall: 479.98;
-
-// type
-$responsiveType: 1;
+@use "./style/settings.scss" as *;
+@forward "./style/animations.scss";
+@use "./style/common.scss";
+@use "./style/components/header.scss";
+@use "./style/components/logo.scss";
+@use "./style/components/group.scss";
+@use "./style/components/toster.scss";
+@use "./style/components/menu-group.scss";
+@use "./style/components/popup.scss";
+@use "./style/elements/buttons.scss";
+@use "./style/elements/inputs.scss";
+@use "./style/elements/dropdown.scss";
 
 body {
+  display: flex;
+  min-height: 100dvh;
   min-width: #{$minWidth}px;
   color: $mainColor;
   font-family: $font-family;
   font-size: #{$fontSize}px;
-
-  background: #f6f7f9;
+  &.menu-open {
+    overflow: hidden;
+    &:after {
+      content: "";
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background-color: #000;
+      z-index: 9;
+      opacity: 0.5;
+    }
+  }
 }
 
 .wrapper {
-  min-height: 100%;
+  position: relative;
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
   overflow: clip;
+  background: #f6f7f9;
 
   > main {
     flex: 1 1 auto;
@@ -52,45 +55,19 @@ body {
   }
 }
 
-@if ($responsiveType==1) {
-  [class*="__container"] {
-    @if ($maxWidthContainer>0) {
-      max-width: #{$containerWidth}px;
-      margin: 0 auto;
-    }
-    @if ($containerPadding>0) {
-      @if ($maxWidthContainer>0) {
-        padding-left: #{math.div($containerPadding, 2)}px;
-        padding-right: #{math.div($containerPadding, 2)}px;
-      } @else {
-        @include adaptiveValue("padding-left", math.div($containerPadding, 2), 15);
-        @include adaptiveValue("padding-right", math.div($containerPadding, 2), 15);
-      }
-    }
-  }
-} @else {
-  [class*="__container"] {
+[class*="__container"] {
+  display: flex;
+  @if ($maxWidthContainer>0) {
+    max-width: #{$containerWidth}px;
     margin: 0 auto;
+  }
+  @if ($containerPadding>0) {
     @if ($maxWidthContainer>0) {
-      max-width: #{$maxWidthContainer}px;
+      padding-left: #{math.div($containerPadding, 2)}px;
+      padding-right: #{math.div($containerPadding, 2)}px;
     } @else {
-      @if ($containerPadding>0) {
-        padding-left: #{math.div($containerPadding, 2)}px;
-        padding-right: #{math.div($containerPadding, 2)}px;
-      }
-    }
-    @media (max-width: toEm($pc)) {
-      max-width: 970px;
-    }
-    @media (max-width: toEm($tablet)) {
-      max-width: 750px;
-    }
-    @media (max-width: toEm($mobile)) {
-      max-width: none;
-      @if ($containerPadding>0 and $maxWidthContainer>0) {
-        padding-left: #{math.div($containerPadding, 2)}px;
-        padding-right: #{math.div($containerPadding, 2)}px;
-      }
+      @include adaptiveValue("padding-left", math.div($containerPadding, 2), 15);
+      @include adaptiveValue("padding-right", math.div($containerPadding, 2), 15);
     }
   }
 }

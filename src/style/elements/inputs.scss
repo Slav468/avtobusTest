@@ -1,0 +1,26 @@
+.input {
+  flex-grow: 1;
+  background-color: var(--bgDarkExtraLight);
+  border-radius: var(--radius);
+  border: 1px solid var(--bgDarkExtraLight);
+  padding: 9px 8px;
+  outline: none;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+  &::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  &:focus {
+    box-shadow: 0 0 5px 0 rgba(0, 91, 254, 0.4);
+    border: 1px solid #005bfe;
+  }
+  @media (any-hover: hover) {
+    &:hover {
+      border: 1px solid #005bfe;
+    }
+  }
+}
