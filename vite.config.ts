@@ -1,5 +1,9 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  plugins: [],
+  base: './', // Важно для относительных путей
+  build: {
+    assetsDir: 'assets',
+    outDir: 'dist',
+  },
 });
